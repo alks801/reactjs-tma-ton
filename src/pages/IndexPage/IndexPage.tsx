@@ -1,40 +1,65 @@
-import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
+import { Section, Cell, Image, List, Headline } from '@telegram-apps/telegram-ui';
 import type { FC } from 'react';
 
 import { Link } from '@/components/Link/Link.tsx';
 
 import tonSvg from './ton.svg';
+import { InitDataPage } from '../InitDataPage/InitDataPage';
 
 export const IndexPage: FC = () => {
-  return (
-    <List>
-      <Section
-        header='Features'
-        footer='You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects'
+  return <List>
+    <Headline>
+      Hello, Serg. Here is our MVP
+    </Headline>
+     <Section
+        header='Your wallet section'
+        // footer='You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects'
       >
         <Link to='/ton-connect'>
           <Cell
             before={<Image src={tonSvg} style={{ backgroundColor: '#007AFF' }}/>}
-            subtitle='Connect your TON wallet'
+            subtitle='TON wallet connection page'
           >
             TON Connect
           </Cell>
         </Link>
       </Section>
       <Section
-        header='Application Launch Data'
-        footer='These pages help developer to learn more about current launch information'
+        header='Your account info section'
+        // footer='Here is available tg account information without any requests'
       >
-        <Link to='/init-data'>
-          <Cell subtitle='User data, chat information, technical data'>Init Data</Cell>
-        </Link>
-        <Link to='/launch-params'>
-          <Cell subtitle='Platform identifier, Mini Apps version, etc.'>Launch Parameters</Cell>
-        </Link>
-        <Link to='/theme-params'>
-          <Cell subtitle='Telegram application palette information'>Theme Parameters</Cell>
-        </Link>
+        <InitDataPage />
       </Section>
-    </List>
-  );
+  </List>
+  // return (
+  //   <List>
+  //     <Section
+  //       header='Features'
+  //       footer='You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects'
+  //     >
+  //       <Link to='/ton-connect'>
+  //         <Cell
+  //           before={<Image src={tonSvg} style={{ backgroundColor: '#007AFF' }}/>}
+  //           subtitle='Connect your TON wallet'
+  //         >
+  //           TON Connect
+  //         </Cell>
+  //       </Link>
+  //     </Section>
+  //     <Section
+  //       header='Application Launch Data'
+  //       footer='These pages help developer to learn more about current launch information'
+  //     >
+  //       <Link to='/init-data'>
+  //         <Cell subtitle='User data, chat information, technical data'>Init Data</Cell>
+  //       </Link>
+  //       <Link to='/launch-params'>
+  //         <Cell subtitle='Platform identifier, Mini Apps version, etc.'>Launch Parameters</Cell>
+  //       </Link>
+  //       <Link to='/theme-params'>
+  //         <Cell subtitle='Telegram application palette information'>Theme Parameters</Cell>
+  //       </Link>
+  //     </Section>
+  //   </List>
+  // );
 };
